@@ -17,16 +17,13 @@ driver.get('https://www.amazon.com/')
 
 # Finding Elements
 driver.find_element(By.ID, "nav-orders").click()
-login_header = driver.find_element(By.XPATH, "//h1[@class='a-spacing-small']").text
-email_input_field = driver.find_element(By.ID, "ap_email")
+driver.find_element(By.XPATH, "//h1[@class='a-spacing-small']").text
+driver.find_element(By.ID, "ap_email")
 
 # Verifying Elements
+login_header = driver.find_element(By.XPATH, "//h1[@class='a-spacing-small']").text
+email_input_field = driver.find_element(By.ID, "ap_email")
 assert login_header == "Sign in", "Sign in header is not visible"
-
-
-if email_input_field.is_displayed():
-    print("Email input is present")
-else:
-    print("Email input isn't present")
+email_input_field.is_displayed()
 
 

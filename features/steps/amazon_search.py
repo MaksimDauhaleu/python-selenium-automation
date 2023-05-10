@@ -5,7 +5,7 @@ from time import sleep
 
 @given('Open amazon main page')
 def open_amazon(context):
-    context.driver.get('https://www.amazon.com/')
+    context.driver.get('https://www.amazon.com')
 
 
 @when('Search for {search_word}')
