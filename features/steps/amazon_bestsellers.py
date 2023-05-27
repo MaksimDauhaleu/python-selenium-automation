@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 from behave import given, when, then
-from time import sleep
+
 
 TAB_LINKS = (By.XPATH, "//div[contains(@class, '_p13n-zg-nav-tab-all_style_zg-tabs-li')]")
 

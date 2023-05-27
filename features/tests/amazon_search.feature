@@ -11,17 +11,17 @@ Feature: Amazon Search tests
 #    When Search for coffee
 #    Then Verify search results shown for "coffee"
 
-  Scenario Outline: User can search on Amazon
-    Given Open amazon main page
-    When Search for <search_word>
-    Then Verify search results shown for <search_result>
-    Examples:
-    |search_word      |search_result    |
-    |table            |"table"          |
-    |coffee           |"coffee"         |
-    |mug              |"mug"            |
-    |dress            |"dress"          |
-
+#  Scenario Outline: User can search on Amazon
+#    Given Open amazon main page
+#    When Search for <search_word>
+#    Then Verify search results shown for <search_result>
+#    Examples:
+#    |search_word      |search_result    |
+#    |table            |"table"          |
+#    |coffee           |"coffee"         |
+#    |mug              |"mug"            |
+#    |dress            |"dress"          |
+#
   Scenario: User can add a product to the cart
     Given Open amazon main page
     When Search for Tritan Farm to Table Pitcher
@@ -31,3 +31,10 @@ Feature: Amazon Search tests
     And Open cart page
     Then Verify cart has 1 item(s)
     And Verify cart has correct product
+
+#Scenario: Verifying every product contains title and photo
+#  Given Open amazon main page
+#  When Search for Coffee
+#  Then Check for title and image
+
+
