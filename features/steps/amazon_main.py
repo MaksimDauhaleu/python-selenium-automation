@@ -12,7 +12,7 @@ POPUP_SIGNIN_BTN = (By.CSS_SELECTOR, "#nav-signin-tooltip .nav-action-signin-but
 
 @given('Open amazon main page')
 def open_amazon(context):
-    context.driver.get('https://www.amazon.com/')
+    context.app.main_page.open_main_page()
 
 
 @when('Click on button from SignIn popup')
@@ -25,18 +25,12 @@ def click_sign_in_popup_btn(context):
 
 @when('Search for {search_query}')
 def search_amazon(context, search_query):
-    context.driver.find_element(*SEARCH_FILED).send_keys(search_query)
-    context.driver.find_element(*SEARCH_BTN).click()
+    context.app.header.search_amazon(search_query)
 
 
 @when('Click Orders')
 def click_orders(context):
-    element = context.driver.find_element(*ORDERS_BTN)
-    print('Before refresh: ', element)
-    context.driver.refresh()
-    element = context.driver.find_element(*ORDERS_BTN)
-    print('After refresh: ', element)
-    element.click()
+    context.app.header.click_orders()
 
 
 @when('Verify Orders btn present')
@@ -75,3 +69,13 @@ def verify_link_count(context, expected_amount):
 
     # 36 == 36
     assert links_count == expected_amount, f'Expected {expected_amount} links, but got {links_count}'
+
+
+@then('Verify Sign In page is opened')
+def sign_in_opened(context):
+    context.app.base_page.verify_url_contains_query('https://www.amazon.com/ap/signin')
+
+
+@when('Click on cart icon')
+def click_cart(context):
+    context.app.header.click_cart()

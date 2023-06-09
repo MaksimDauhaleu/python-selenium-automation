@@ -38,3 +38,13 @@ Feature: Amazon Search tests
 #  Then Check for title and image
 
 
+#Scenario: Logged out user sees Sign in page when clicking Orders
+# Given Open Amazon main page
+# When Click Orders
+# Then Verify Sign In page is opened
+
+
+#Scenario: 'Your Shopping Cart is empty' shown if no product added
+# Given Open Amazon main page
+# When Click on cart icon
+# Then Verify Shopping Cart is empty

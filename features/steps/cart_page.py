@@ -7,16 +7,20 @@ PRODUCT_NAME = (By.CSS_SELECTOR, "#sc-active-cart li")
 
 @when('Open cart page')
 def open_cart_page(context):
-    context.driver.get('https://www.amazon.com/gp/cart/view.html?ref_=nav_cart')
+    context.app.header.click_cart()
 
 
 @then('Verify cart has {expected_count} item(s)')
 def verify_cart_count(context, expected_count):
-    actual_text = context.driver.find_element(*CART).text
-    assert expected_count == actual_text, f'Expected {expected_count}, but got {actual_text}'
+    context.app.cart_page.check_cart_item(expected_count)
 
 
 @then('Verify cart has correct product')
 def verify_product_name(context):
-    actual_name = context.driver.find_element(*PRODUCT_NAME).text
-    assert context.product_name[:30] in actual_name, f'Expected {context.product_name} but got {actual_name}'
+    context.app.cart_page.verify_cart_item()
+
+
+@then('Verify Shopping Cart is empty')
+def verify_cart_empty(contex):
+    contex.app.cart_page.check_cart_empty()
+
