@@ -30,3 +30,9 @@ def verify_products_name_img(context):
         print(title)
         assert title, 'Title should not be blank'
         assert product.find_element(*PRODUCT_IMG).is_displayed(), 'Image is not found'
+
+
+@then('Verify department')
+def verify_dept(context):
+    context.app.search_results_page.verify_dept()
+

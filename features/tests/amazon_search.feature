@@ -22,15 +22,15 @@ Feature: Amazon Search tests
 #    |mug              |"mug"            |
 #    |dress            |"dress"          |
 #
-  Scenario: User can add a product to the cart
-    Given Open amazon main page
-    When Search for Tritan Farm to Table Pitcher
-    And Click on the first product
-    And Store product name
-    And Click on Add to cart button
-    And Open cart page
-    Then Verify cart has 1 item(s)
-    And Verify cart has correct product
+#  Scenario: User can add a product to the cart
+#    Given Open amazon main page
+#    When Search for Tritan Farm to Table Pitcher
+#    And Click on the first product
+#    And Store product name
+#    And Click on Add to cart button
+#    And Open cart page
+#    Then Verify cart has 1 item(s)
+#    And Verify cart has correct product
 
 #Scenario: Verifying every product contains title and photo
 #  Given Open amazon main page
@@ -44,7 +44,20 @@ Feature: Amazon Search tests
 # Then Verify Sign In page is opened
 
 
-#Scenario: 'Your Shopping Cart is empty' shown if no product added
+#Scenario: Your Shopping Cart is empty' shown if no product added
 # Given Open Amazon main page
 # When Click on cart icon
 # Then Verify Shopping Cart is empty
+
+
+#Scenario: Changing department and verifying it
+#  Given Open Amazon main page
+#  When Change department
+#  When Search for Laptops
+#  Then Verify department
+
+Scenario: Ks
+  Given Open Amazon product B074TBCSC8 page
+  When Hover over New Arrivals
+  Then Verify Pop Up is Visible
+

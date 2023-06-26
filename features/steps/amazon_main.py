@@ -79,3 +79,9 @@ def sign_in_opened(context):
 @when('Click on cart icon')
 def click_cart(context):
     context.app.header.click_cart()
+
+
+@when('Change department')
+def change_dept(context):
+    context.app.header.changing_dept()
+

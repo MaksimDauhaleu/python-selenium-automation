@@ -39,3 +39,12 @@ def verify_can_click_colors(context):
     assert expected_colors == actual_colors, \
         f'Expected colors {expected_colors} did not match actual {actual_colors}'
 
+
+@when('Hover over New Arrivals')
+def hover_to_na(context):
+    context.app.product_page.hover_to_na()
+
+
+@then('Verify Pop Up is Visible')
+def panel_visible(context):
+    context.app.product_page.panel_visible()

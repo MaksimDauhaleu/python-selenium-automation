@@ -5,6 +5,7 @@ from pages.base_page import Page
 class SearchResultsPage(Page):
     RESULT_TEXT = (By.XPATH, "//span[@class='a-color-state a-text-bold']")
     PRODUCT_PRICE = (By.XPATH, "//div[@data-component-type='s-search-result']//a[.//span[@class='a-price']]")
+    DEPT_NAME = (By.CSS_SELECTOR, "[data-category='electronics']")
 
     def verify_search_results(self, expected_result):
         self.verify_element_text(expected_result, *self.RESULT_TEXT)
@@ -12,3 +13,6 @@ class SearchResultsPage(Page):
     def click_first_item(self):
         self.click(*self.PRODUCT_PRICE)
 
+    def verify_dept(self):
+        dept_name = self.find_elements(*self.DEPT_NAME)
+        self.wait_for_element_appear(*self.DEPT_NAME)
